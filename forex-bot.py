@@ -89,13 +89,19 @@ async def handle_channel_post(update: Update, context: CallbackContext):
                     await context.bot.send_message(chat_id=user_id, text=f"{pair} Signal changed to: {signal}")
                     db.child("last_signals").child(user_id).child(pair).set(signal)
 
-# Initialize Telegram bot
-application = Application.builder().token(telegram_token).build()
-
-# Register handlers
-application.add_handler(CommandHandler("start", start))
-application.add_handler(CallbackQueryHandler(button))
-application.add_handler(MessageHandler(filters.UpdateType.CHANNEL_POST, handle_channel_post))
-
 # Start the bot
-application.run_polling()
+def main() -> None:
+    # Initialize Telegram bot
+    application = Application.builder().token(telegram_token).build()
+    
+    # Register handlers
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(button))
+    application.add_handler(MessageHandler(filters.UpdateType.CHANNEL_POST, handle_channel_post))
+
+    #application.run_polling(allowed_updates=Update.ALL_TYPES)
+    application.run_polling()
+    
+
+if __name__ == "__main__":
+    main()
