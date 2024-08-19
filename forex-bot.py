@@ -1,3 +1,5 @@
+pip install pyrebase4
+pip install python-telegram-bot
 import pyrebase
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, CallbackContext
