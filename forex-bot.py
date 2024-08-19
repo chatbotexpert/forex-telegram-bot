@@ -1,5 +1,6 @@
 import pyrebase
 import os
+from keep_alive import keep_alive
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, CallbackContext
 
