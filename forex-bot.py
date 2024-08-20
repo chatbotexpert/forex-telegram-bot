@@ -6,7 +6,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 
 # Firebase configuration (replace with your own)
 firebase_config = {
-    "apiKey": "AIzaSyAVwNeN6TWHUEamGrOkJmjCkBLFB186N00",   #os.environ.get('apiKey'),
+    "apiKey": os.environ.get('apiKey'),
     "authDomain": "cryptonotifierbot.firebaseapp.com",
     "databaseURL": "https://cryptonotifierbot-default-rtdb.firebaseio.com",
     "projectId": "cryptonotifierbot",
@@ -20,7 +20,7 @@ firebase = pyrebase.initialize_app(firebase_config)
 db = firebase.database()
 
 # Telegram bot token (replace with your own)
-telegram_token = "7293691754:AAEJOKDyJLX36my4mLIcUJzX24LKzoxx_tE"   #os.environ.get('token') 
+telegram_token = os.environ.get('token') 
 
 CHANNEL_CHAT_ID = -1001652712429  # Replace with your channel's chat ID
 
